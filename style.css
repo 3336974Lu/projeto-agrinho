@@ -1,1 +1,183 @@
-ygfrd
+/* Variáveis de Cores: Facilita a personalização do tema */
+:root {
+    --primary-color: #6F4E37; /* Marrom Café Escuro, para cabeçalho e títulos */
+    --secondary-color: #A0522D; /* Sépia, para navegação e destaques */
+    --accent-color: #D2B48C; /* Tan, para detalhes e acentos visuais */
+    --text-color: #333; /* Cor principal para o texto do corpo */
+    --light-text-color: #f4f4f4; /* Cor para textos em fundos escuros */
+    --background-color: #FFFAF0; /* Floral White, cor de fundo geral */
+    --card-background: #ffffff; /* Fundo para os cards de conteúdo */
+    --shadow-light: rgba(0,0,0,0.08); /* Sombra leve para elementos */
+    --shadow-medium: rgba(0,0,0,0.15); /* Sombra mais pronunciada ao interagir */
+}
+
+/* Estilos Globais */
+body {
+    font-family: 'Open Sans', sans-serif; /* Fonte para o corpo do texto */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Garante que padding e border são incluídos no tamanho total */
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6; /* Espaçamento entre linhas para melhor leitura */
+}
+
+/* Links em geral */
+a {
+    color: var(--secondary-color);
+    text-decoration: none; /* Remove o sublinhado padrão */
+    transition: color 0.3s ease; /* Transição suave na mudança de cor */
+}
+
+a:hover {
+    color: var(--primary-color); /* Muda a cor ao passar o mouse */
+}
+
+/* Cabeçalho do Site */
+header {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    padding: 2rem 0; /* Aumenta o padding para mais destaque */
+    text-align: center;
+    box-shadow: 0 4px 8px var(--shadow-light); /* Sombra mais visível */
+}
+
+header h1 {
+    font-family: 'Merriweather', serif; /* Fonte diferenciada para o título principal */
+    font-size: 3.2rem; /* Tamanho maior para o título */
+    margin: 0;
+    letter-spacing: 1.5px; /* Espaçamento entre letras */
+}
+
+header p {
+    font-size: 1.4rem; /* Tamanho para o subtítulo */
+    margin-top: 0.8rem;
+    font-weight: 300; /* Levemente mais fina */
+}
+
+/* Navegação Principal */
+nav {
+    background-color: var(--secondary-color);
+    padding: 1rem 0; /* Padding ajustado */
+    text-align: center;
+    box-shadow: 0 2px 5px var(--shadow-light);
+}
+
+nav ul {
+    list-style: none; /* Remove marcadores de lista */
+    padding: 0;
+    margin: 0;
+    display: flex; /* Flexbox para alinhar os itens */
+    justify-content: center; /* Centraliza os itens */
+    flex-wrap: wrap; /* Permite que os itens quebrem linha em telas pequenas */
+}
+
+nav ul li {
+    margin: 0 20px; /* Espaçamento entre os itens do menu */
+}
+
+nav ul li a {
+    color: var(--light-text-color);
+    text-decoration: none;
+    font-weight: 600; /* Negrito para os links do menu */
+    transition: color 0.3s ease;
+    padding: 8px 0; /* Padding para a área clicável */
+    position: relative; /* Para o efeito de sublinhado */
+}
+
+/* Efeito de sublinhado ao passar o mouse nos links da navegação */
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0; /* Inicia sem largura */
+    height: 3px; /* Espessura do sublinhado */
+    background: var(--accent-color);
+    left: 0;
+    bottom: 0;
+    transition: width 0.3s ease; /* Transição suave ao crescer */
+}
+
+nav ul li a:hover::after {
+    width: 100%; /* O sublinhado preenche a largura total ao passar o mouse */
+}
+
+/* Container Principal do Conteúdo */
+.container {
+    max-width: 1100px; /* Largura máxima maior para o conteúdo */
+    margin: 3rem auto; /* Centraliza o container */
+    padding: 0 25px; /* Padding nas laterais */
+}
+
+/* Seções de Conteúdo */
+section {
+    background-color: var(--card-background);
+    padding: 3rem; /* Padding interno das seções */
+    margin-bottom: 3rem; /* Espaçamento entre seções */
+    border-radius: 10px; /* Cantos mais arredondados */
+    box-shadow: 0 6px 15px var(--shadow-light); /* Sombra mais suave */
+}
+
+section h2 {
+    font-family: 'Merriweather', serif;
+    color: var(--primary-color);
+    font-size: 2.6rem; /* Tamanho maior para os títulos de seção */
+    margin-top: 0;
+    margin-bottom: 2rem;
+    text-align: center;
+    position: relative;
+}
+
+/* Linha decorativa abaixo dos títulos de seção */
+section h2::after {
+    content: '';
+    display: block;
+    width: 80px; /* Largura maior da linha */
+    height: 4px; /* Espessura da linha */
+    background: var(--accent-color);
+    margin: 15px auto 0; /* Centraliza e espaça da linha */
+}
+
+/* Layout de Introdução (Grid) */
+.intro-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Uma coluna por padrão */
+    gap: 2.5rem; /* Espaçamento maior entre elementos */
+    align-items: center;
+}
+
+.intro-grid img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px var(--shadow-light);
+}
+
+/* Layout para cards de pontos (História, Impacto, etc.) */
+.history-points,
+.impact-points {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Colunas responsivas */
+    gap: 2rem; /* Espaçamento entre os cards */
+    margin-top: 2.5rem;
+}
+
+.point-card {
+    background-color: var(--background-color);
+    padding: 2rem; /* Padding interno do card */
+    border-radius: 8px;
+    box-shadow: 0 3px 8px var(--shadow-light);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.point-card:hover {
+    transform: translateY(-8px); /* Eleva o card ao passar o mouse */
+    box-shadow: 0 8px 20px var(--shadow-medium); /* Sombra mais intensa */
+}
+
+.point-card h3 {
+    color: var(--secondary-color);
+    font-family: 'Merriweather', serif;
+    font-size: 1.5rem; /* Tamanho do título do card */
+    margin-top: 0;
+    margin-bottom
