@@ -42,6 +42,11 @@ header {
     box-shadow: 0 4px 8px var(--shadow-light); /* Sombra mais visível */
 }
 
+img {
+    width: 80%;
+    height: auto;
+}
+
 header h1 {
     font-family: 'Merriweather', serif; /* Fonte diferenciada para o título principal */
     font-size: 3.2rem; /* Tamanho maior para o título */
